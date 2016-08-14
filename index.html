@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Polymer Test</title>
+    <base href="http://polygit.org/polymer+*/google-+*/components/">
+    <link href="polymer/polymer.html" rel="import">
+    <link rel="import" href="google-map/google-map.html">
+    <link rel="import" href="google-map/google-map-directions.html">
+    <link href='https://staging.secure.xfinity.com/v2/nav/polymer' rel='import'>
+
+    <style>
+      body, html {
+        height: 100%;
+        width: 100%;
+      }
+      google-map {
+        display: none;
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <xc-header is-authed="false"></xc-header>
+
+    <template is="dom-bind">
+      <google-map map="{{map}}"
+        api-key="[[apiKey]]">
+      </google-map>
+      <google-map-directions map="[[map]]" api-key="[[apiKey]]"
+          start-address="Philadelphia Airport" end-address="8018 Crispin Street, 19136">
+      </google-map-directions>
+    </template>
+    <script>
+      document.querySelector('template').apiKey="AIzaSyALlX4JUBGaBZ_p9rbyTrdNYfYBN0_QGUI";
+    </script>
+    <xc-footer></xc-footer>
+  </body>
+</html>
